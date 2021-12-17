@@ -1,5 +1,5 @@
 fn test_concatenation() {
-    	assert 'abc' == 'a' + 'bc'
+	assert 'abc' == 'a' + 'bc'
 	assert 'abc' == 'ab' + 'c'
 }
 
