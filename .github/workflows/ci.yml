@@ -31,3 +31,31 @@ jobs:
       - name: Run Yourproject tests
         run: |
           v test yourproject/
+
+  windows-build-and-test:
+    runs-on: windows-latest
+    env:
+      VFLAGS: -cc msvc
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build V
+        uses: actions/checkout@v2
+        with:
+          repository: vlang/v
+        run: |
+          .\make.bat -msvc
+          .\v.exe symlink
+
+      - name: Checkout Yourproject
+        uses: actions/checkout@v2
+        with:
+          path: yourproject
+      - name: Verify Yourproject is nicely formatted
+        run: |
+          v fmt -verify yourproject/
+      - name: Build Yourproject
+        run: |
+          v yourproject/
+      - name: Run Yourproject tests
+        run: |
+          v test yourproject/
