@@ -49,6 +49,7 @@ jobs:
           path: yourproject
       - name: Verify Yourproject is nicely formatted
         run: |
+          .\v.exe fmt -diff yourproject
           .\v.exe fmt -verify yourproject
       - name: Build Yourproject
         run: |
