@@ -37,10 +37,11 @@ jobs:
     env:
       VFLAGS: -cc msvc
     steps:
-      - uses: actions/checkout@v2
-      - name: Build V
+      - name: Checkout Latest V
+        uses: actions/checkout@v2
         with:
           repository: vlang/v
+      - name: Build V
         run: |
           .\make.bat -msvc
           .\v.exe symlink
