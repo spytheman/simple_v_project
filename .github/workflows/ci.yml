@@ -1,0 +1,27 @@
+name: Build and Test
+
+on: [push, pull_request]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Latest V
+        uses: actions/checkout@v2
+        with:
+          repository: vlang/v
+      - name: Build V
+        run: |
+          make
+          sudo ./v symlink
+
+      - name: Checkout Yourproject
+        uses: actions/checkout@v2
+        with:
+          path: yourproject
+      - name: Build Yourproject
+        run: |
+          v yourproject/
+      - name: Run Yourproject tests
+        run: |
+          v test yourproject/
