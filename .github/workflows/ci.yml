@@ -49,7 +49,7 @@ jobs:
           path: yourproject
       - name: Verify Yourproject is nicely formatted
         run: |
-          .\v.exe fmt -verify yourproject/
+          .\v.exe fmt -verify .
       - name: Build Yourproject
         run: |
           .\v.exe yourproject/
