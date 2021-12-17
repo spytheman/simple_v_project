@@ -25,3 +25,6 @@ jobs:
       - name: Run Yourproject tests
         run: |
           v test yourproject/
+      - name: Verify Yourproject is nicely formatted
+        run: |
+          v fmt -verify yourproject/
