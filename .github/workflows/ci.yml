@@ -39,7 +39,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build V
-        uses: actions/checkout@v2
         with:
           repository: vlang/v
         run: |
